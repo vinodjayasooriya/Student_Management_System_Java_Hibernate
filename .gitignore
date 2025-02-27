@@ -1,0 +1,31 @@
+# Ignore target folder (compiled files)
+target/
+
+# Ignore Maven wrapper files
+.mvn/
+mvnw
+mvnw.cmd
+
+# Ignore IntelliJ IDEA files
+.idea/
+*.iml
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+logs/
+*.log
+
+# Ignore compiled files
+*.class
+
+# Ignore dependency directories
+node_modules/
+dist/
+
+# Ignore environment and secret files
+.env
+*.properties
+*.yml

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="476.0" prefWidth="900.0" stylesheets="@../styles/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.cmjd.coursework.controller.StudentController">
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox prefHeight="886.0" prefWidth="210.0" style="-fx-background-color: #2F4F4F;" styleClass="sidebar">
+            <Button onAction="#switchForm" styleClass="menu-btn" text="Home" userData="home" />
+         <Button onAction="#switchForm" styleClass="menu-btn" text="Register Student" userData="RegisterStudent" />
+            <Button onAction="#switchForm" styleClass="menu-btn" text="Enrollments" userData="Enrollments" />
+            <Button onAction="#switchForm" styleClass="menu-btn" text="Academic Records" userData="AcademmicRecords" />
+        </VBox>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+
+
+        <StackPane fx:id="contentArea">
+
+            <!-- Academic Section -->
+           <AnchorPane fx:id="academicRecordsPane" focusTraversable="true" styleClass="content-area" visible="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+
+              <VBox layoutX="20" layoutY="20" spacing="10">
+                 <AnchorPane fx:id="academicpane" prefHeight="402.0" prefWidth="776.0" styleClass="content-area">
+                    <children>
+                       <Label layoutX="384.0" layoutY="14.0" prefHeight="10.0" prefWidth="264.0" styleClass="section-title" text="Academic Records" />
+
+                       <!-- Search Box -->
+                       <TextField fx:id="searchField" layoutX="670.0" layoutY="65.0" prefHeight="23.0" prefWidth="346.0" promptText="Search by Student Name or ID..." />
+                       <TableView fx:id="academictable" layoutX="120.0" layoutY="103.0" prefHeight="218.0" prefWidth="750.0">
+                          <columns>
+                             <TableColumn fx:id="arstudent_id_col" prefWidth="100" text="Student ID" />
+                             <TableColumn fx:id="arstudent_name_col" prefWidth="200" text="Name" />
+                             <TableColumn fx:id="arstudent_year_col" prefWidth="150" text="Year" />
+                             <TableColumn fx:id="arstudentgpa_col" prefWidth="150" text="GPA" />
+                             <TableColumn fx:id="arstudent_program_col" prefWidth="150" text="Program" />
+                          </columns>
+                       </TableView>
+                    </children>
+                 </AnchorPane>
+              </VBox>
+
+              <BarChart fx:id="home_totalEnrolledChart" layoutX="207.0" layoutY="365.0" prefHeight="250.0" prefWidth="606.0" title="Student Academic Reports">
+                 <xAxis>
+                    <CategoryAxis fx:id="studentIdAxis" label="Student ID" />
+                 </xAxis>
+                 <yAxis>
+                    <NumberAxis fx:id="gpaAxis" label="GPA" lowerBound="0" tickUnit="0.5" upperBound="4" />
+                 </yAxis>
+              </BarChart>
+           </AnchorPane>
+
+           <AnchorPane fx:id="registerstudentpane" focusTraversable="true" prefHeight="646.0" prefWidth="1086.0" styleClass="content-area" visible="false">
+            <children>
+               <Label layoutX="404.0" layoutY="24.0" styleClass="section-title" text="Register Student" />
+               <TextField fx:id="searchFieldreg" layoutX="755.0" layoutY="421.0" prefHeight="23.0" prefWidth="264.0" promptText="Search by Student Name or ID..." />
+               <GridPane depthTest="ENABLE" focusTraversable="true" hgap="10.0" layoutX="114.0" layoutY="94.0" minHeight="273.0" minWidth="300.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="274.0" prefWidth="762.0" vgap="10.0">
+                  <columnConstraints>
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                     <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+                     <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                     <ColumnConstraints maxWidth="1.7976931348623157E308" />
+                     <ColumnConstraints />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                     <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                     <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                     <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                     <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                  </rowConstraints>
+                  <children>
+                     <Label text="Student ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                     <TextField fx:id="SstudentId" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                     <Label text="Name:" GridPane.rowIndex="1" />
+                     <TextField fx:id="studentName" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     <Label text="Email:" GridPane.rowIndex="3" />
+                     <TextField fx:id="studentEmail" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     <Label text="Department" GridPane.rowIndex="4" />
+                     <TextField fx:id="studentProgram" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                     <Label text="Date Of Birth:" GridPane.rowIndex="6" />
+                     <DatePicker fx:id="Sdob" prefHeight="23.0" prefWidth="227.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                     <Label text="Year" GridPane.rowIndex="7" />
+                     <Label text="Contact Number" GridPane.rowIndex="9" />
+                     <TextField fx:id="Saddress" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+                     <Label text="Home Contact Number" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                     <TextField fx:id="Shome" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                     <Label prefHeight="32.0" prefWidth="88.0" text="Address" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+                     <TextField fx:id="contactNumber11" visible="false" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+                     <Label prefHeight="15.0" prefWidth="36.0" text="NID " GridPane.columnIndex="7" />
+                     <TextField fx:id="Semail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     <Label text="School" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                     <TextField fx:id="Sname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <Label text="Ol/Result" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                     <TextField fx:id="Sid" GridPane.columnIndex="8" />
+                     <Label text="AL/Result" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                     <TextField fx:id="Sschool" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+                     <Label text="Programe" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+                     <TextField fx:id="Sol" prefHeight="56.0" prefWidth="182.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                     <HBox prefHeight="6.0" prefWidth="226.0" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                        <children>
+                           <Button onAction="#addStudent" styleClass="add-btn" text="Add" />
+                           <Button onAction="#updateStudent" prefHeight="38.0" prefWidth="55.0" styleClass="update-btn" text="Update" />
+                           <Button onAction="#deleteStudent" styleClass="delete-btn" text="Delete" />
+                        </children>
+                     </HBox>
+                     <TextField fx:id="Scontack" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                     <TextField fx:id="Sal" prefHeight="71.0" prefWidth="151.0" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+
+
+                     <ComboBox fx:id="Syear" prefHeight="23.0" prefWidth="226.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="1 Year" />
+                           <String fx:value="2 Year" />
+                           <String fx:value="3 Year" />
+                           <String fx:value="4 Year" />
+                        </FXCollections>
+                     </items>
+                     </ComboBox>
+                     <ComboBox fx:id="Sdepartment" prefHeight="23.0" prefWidth="226.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Engineering" />
+                           <String fx:value="Software Engineering" />
+                           <String fx:value="Management" />
+
+                        </FXCollections>
+                     </items>
+                     </ComboBox>
+                     <ComboBox fx:id="Sprograme" prefHeight="23.0" prefWidth="226.0" GridPane.columnIndex="8" GridPane.rowIndex="7">
+                        <items>
+                           <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="CMJD" />
+                              <String fx:value="GDSE" />
+                              <String fx:value="DEP" />
+                              <String fx:value="HR" />
+                           </FXCollections>
+                        </items>
+                     </ComboBox>
+
+                  </children>
+               </GridPane>
+               <TableView id="studentTable" fx:id="studentsregTable" layoutX="45.0" layoutY="453.0" prefHeight="210.0" prefWidth="910.0">
+                  <columns>
+                     <TableColumn fx:id="studentidcol" prefWidth="67.99999809265137" text="Student ID" />
+                     <TableColumn fx:id="studentnamecol" prefWidth="75.20001983642578" text="Name" />
+                     <TableColumn fx:id="studentemailcol" prefWidth="73.5999755859375" text="Email" />
+                     <TableColumn fx:id="studentdepartmentcol" prefWidth="75.199951171875" text="Department" />
+                     <TableColumn fx:id="studentdobcol" prefWidth="79.2000732421875" text="D.O.B" />
+                     <TableColumn fx:id="studentyearcol" prefWidth="61.5999755859375" text="Year" />
+                     <TableColumn fx:id="studentcontactcol" prefWidth="60.800048828125" text="Contact number" />
+                     <TableColumn fx:id="studentnidcol" prefWidth="59.999908447265625" text="NID" />
+                     <TableColumn fx:id="studenthomecol" prefWidth="59.999908447265625" text="Home Contack Number" />
+                     <TableColumn fx:id="studentschoolcol" prefWidth="59.999908447265625" text="School" />
+                     <TableColumn fx:id="studentolcol" prefWidth="59.999908447265625" text="OL/Result" />
+                     <TableColumn fx:id="studentalcol" prefWidth="59.999908447265625" text="AL/Result" />
+                     <TableColumn fx:id="studentcitycol" prefWidth="59.999908447265625" text="Programe" />
+                     <TableColumn fx:id="studentaddresscol" prefWidth="59.999908447265625" text="Address" />
+                  </columns>
+               </TableView>
+            </children>
+         </AnchorPane>
+
+
+
+           <AnchorPane fx:id="homePane" styleClass="content-area" visible="false">
+                 <!-- Courses Card -->
+                <AnchorPane prefHeight="246.0" prefWidth="386.0">
+               <children>
+      
+            
+                            <AnchorPane layoutX="296.0" layoutY="154.0" prefHeight="117.0" prefWidth="260.0" styleClass="card">
+                         <children>
+                            <Label styleClass="card-title" text="Total Student" />
+                            <Label fx:id="studentCount" layoutX="50.0" layoutY="40.0" styleClass="card-count" text="0" />
+                         </children>
+                      </AnchorPane>
+                  <ImageView fx:id="homeimage1" fitHeight="76.0" fitWidth="103.0" layoutX="98.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/227-2271076_student-management-system-symbol-hd-png-download.png" />
+                     </image>
+                  </ImageView>
+               </children>
+                </AnchorPane>
+
+
+                <!-- Courses Card -->
+                <AnchorPane layoutX="519.0" layoutY="154.0" prefHeight="221.0" prefWidth="262.0" styleClass="card">
+                   <Label styleClass="card-title" text="Total Courses" />
+                   <Label fx:id="courseCount" layoutX="50.0" layoutY="40.0" styleClass="card-count" text="0" />
+                </AnchorPane>
+            <Label fx:id="homelabel1" layoutX="179.0" layoutY="31.0" prefHeight="15.0" prefWidth="838.0" text="Student Management System" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Label>
+            <PieChart fx:id="homecourseviewpie" layoutX="575.0" layoutY="299.0" prefHeight="299.0" prefWidth="384.0" />
+
+              <BarChart fx:id="home_totalEnrolledChart2" layoutX="34.0" layoutY="307.0" prefHeight="330.0" prefWidth="462.0" title="Courses">
+               <xAxis>
+                  <CategoryAxis fx:id="coursetitle" label="Course Title" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="credithours" label="Credit Hours" lowerBound="0" tickUnit="0.5" upperBound="4" />
+               </yAxis>
+            </BarChart>
+            </AnchorPane>
+
+                                 <!-- Courses Section -->
+           <AnchorPane fx:id="EnrollmentsPane" styleClass="content-area">
+            <TextField fx:id="searchFieldStudentCourse" layoutX="661.0" layoutY="54.0" prefHeight="23.0" prefWidth="264.0" promptText="Search by Course Title or Department" />
+              <Label layoutX="416.0" layoutY="14.0" styleClass="section-title" text="Enrollemnts" />
+            <TableView fx:id="coursesTable" layoutX="159.0" layoutY="84.0" prefHeight="200">
+               <columns>
+                  <TableColumn fx:id="course_id_col" prefWidth="100" text="Course ID" />
+                  <TableColumn fx:id="course_title_col" prefWidth="100" text="Course Title" />
+                  <TableColumn fx:id="course_credit_hours_col" prefWidth="100" text="Credit Hours" />
+                  <TableColumn fx:id="course_department_col" prefWidth="100" text="Department" />
+                  <TableColumn fx:id="course_prerequistes_col" prefWidth="200" text="PreRequisites" />
+                  <TableColumn fx:id="course_max_capacity_col" prefWidth="100" text="Maximum Capacity" />
+               </columns>
+            </TableView>
+            <GridPane hgap="10" layoutX="80.0" layoutY="368.0" prefHeight="198.0" prefWidth="330.0" vgap="10">
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  <Label text="Student ID" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <TextField fx:id="studentrcid" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Label text="Programe 1" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <TextField fx:id="studentrc1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Programe 2" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <TextField fx:id="studentrc2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Programe 3" GridPane.rowIndex="3" />
+                  <TextField fx:id="studentrc3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <children>
+                        <Button onAction="#addStudentCourse" styleClass="add-btn" text="Add" />
+                        <Button onAction="#updateStudentCourse" styleClass="update-btn" text="Update" />
+                        <Button onAction="#deleteStudentCourse" styleClass="delete-btn" text="Delete" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <TableView fx:id="studentregcourse" layoutX="441.0" layoutY="337.0" prefHeight="210.0" prefWidth="475.0">
+               <columns>
+                  <TableColumn fx:id="studentregcourseid" prefWidth="100" text="Student ID" />
+                  <TableColumn fx:id="studentregcourse1" prefWidth="118.4000244140625" text="Programe1" />
+                  <TableColumn fx:id="studentregcourse2" prefWidth="98.39996337890625" text="Programe 2" />
+                  <TableColumn fx:id="studentregcourse3" prefWidth="156.0" text="Programe 3" />
+               </columns>
+            </TableView>
+            <Label layoutX="80.0" layoutY="339.0" prefHeight="8.0" prefWidth="270.0" text="A student can register for a maximum of 3 courses" textFill="RED">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+
+
+           </AnchorPane>
+
+
+
+
+
+
+
+
+
+        </StackPane>
+    </center>
+
+
+</BorderPane>
